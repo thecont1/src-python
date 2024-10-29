@@ -117,17 +117,17 @@ input_str = """1 345255357 205970905
 1 527554061 434103342"""
 
 
-def dynamicArray(n, q):
+def dynamicArray(n, Q):
     # Write your code here
     arr = [[] for _ in range(n)]
     lastAnswer = 0
     ans = []
-    for Q in q:
-        idx = (Q[1] ^ lastAnswer) % 2
-        if Q[0] == 1: 
-            arr[idx].append(Q[2])
-        elif Q[0] == 2:
-            z = Q[2] % len(arr[idx])
+    for q in Q:
+        idx = (q[1] ^ lastAnswer) % n
+        if q[0] == 1: 
+            arr[idx].append(q[2])
+        elif q[0] == 2:
+            z = q[2] % len(arr[idx])
             lastAnswer = arr[idx][z]
             ans.append(lastAnswer)
             print(lastAnswer)
